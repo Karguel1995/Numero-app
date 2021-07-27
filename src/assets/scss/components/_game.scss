@@ -1,0 +1,17 @@
+  .checkNumber {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .buttonsContainer {
+    margin: 0 auto 20px;
+    width: 190px;
+
+    button {
+      margin: 3px;
+    }
+  }
