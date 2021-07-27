@@ -20,17 +20,22 @@ button,
 	color: _palette(fg-bold) !important;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: _font(weight);
-	height: _size(element-height);
+	height: 4rem;
 	letter-spacing: _font(letter-spacing);
-	line-height: _size(element-height);
+	line-height: 4rem;
 	outline: 0;
-	padding: 0 1.25rem 0 (1.25rem + (_font(letter-spacing) * 0.5));
+	padding: 0 1.35rem 0 (1.35rem + (_font(letter-spacing) * 0.5));
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
+
+	p {
+		line-height: 4rem;
+		font-size: 1.15rem;
+	}
 
 	&:hover {
 		background-color: _palette(border-bg);
