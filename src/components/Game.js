@@ -4,7 +4,7 @@ import '../assets/scss/components/_game.scss'
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-export default function Game({navigation}) {
+export default function Game() {
   const [firstNumber , setFirstNumber] = useState('')
   const [secondNumber , setSecondNumber] = useState('')
   const [thirdNumber , setThirdNumber] = useState('')
@@ -22,6 +22,7 @@ export default function Game({navigation}) {
   const [counter, setCounter] = useState(0)
   const [correctPosition, setCorrectPosition] = useState(0)
   const [correctNumber, setCorrectNumber] = useState(0)
+  const [displayPopup, setDisplayPopup] = useState(false)
 
   const checkResult = () => {
     setCorrectPosition(0)
@@ -53,22 +54,6 @@ export default function Game({navigation}) {
     } else if (z === secondNumber) {
       setCorrectNumber(prevState => prevState +1)
     } 
-
-    // x === firstNumber
-    // ? setCorrectPosition(prevPosition => prevPosition +1)
-    //   : x === secondNumber ? setCorrectNumber(prevState => prevState +1)
-    //     : x === thirdNumber ? setCorrectNumber(prevState => prevState +1)
-    //       : null
-    // y === secondNumber
-    //   ? setCorrectPosition(prevPosition => prevPosition +1)
-    //     : y === firstNumber ? setCorrectNumber(prevState => prevState +1)
-    //       : y === thirdNumber ? setCorrectNumber(prevState => prevState +1)
-    //         : null
-    // z === thirdNumber
-    //   ? setCorrectPosition(prevPosition => prevPosition +1)
-    //     : z === firstNumber ? setCorrectNumber(prevState => prevState +1)
-    //       : z === secondNumber ? setCorrectNumber(prevState => prevState +1)
-    //         : null
     
     setPreviousCheck(firstNumber.toString() + secondNumber.toString() + thirdNumber.toString())
 
@@ -78,14 +63,10 @@ export default function Game({navigation}) {
   }
 
   const showWinAlert = () => {
-    console.log(counter)
-      setX(draw());
-      setY(draw());
-      setZ(draw());
+      setDisplayPopup(true)
       setPreviousCheck('');
       setCorrectNumber('');
       setCorrectPosition('');
-      setCounter(0);
   }
 
   useEffect(() => {
@@ -97,6 +78,13 @@ export default function Game({navigation}) {
   }, [thirdNumber])
 
 
+  const resetGame = () => {
+    setCounter(0);
+    setDisplayPopup(false)
+    setX(draw());
+    setY(draw());
+    setZ(draw());
+  }
   const displayNumbers = () => {
     return numbers.map( (nr) => {
       return( 
@@ -113,12 +101,19 @@ export default function Game({navigation}) {
   } 
 
   return (
-      <div>
-          <div className="checkNumber">
-            <p>{firstNumber}</p>
-            <p>{secondNumber}</p>
-            <p>{thirdNumber}</p>
-          </div>
+    <>
+    <div className={displayPopup ? 'popupActive' : 'popupInactive'}>
+      <p>You won!</p>
+      <p>The correct code was: {x}{y}{z}</p>
+      <p>Your attemts: {counter}</p>
+        <button onClick={resetGame}>Play again</button>
+    </div>
+    <div>
+      <div className="checkNumber">
+        <p>{firstNumber}</p>
+        <p>{secondNumber}</p>
+        <p>{thirdNumber}</p>
+      </div>
       <div>
         <p>Attempts: {counter}</p>
         <p>Previous check: {previousCheck}</p>
@@ -129,5 +124,6 @@ export default function Game({navigation}) {
         {displayNumbers()}
       </div>
     </div>
+    </>
   );
 }
