@@ -1,3 +1,3 @@
 # Numero App
 
-live: https://numeroappweb.gatsbyjs.io/
+Live: https://numero.gatsbyjs.io/
