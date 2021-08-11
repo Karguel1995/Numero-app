@@ -30,15 +30,22 @@ class Main extends React.Component {
           <p>
             The goal of the game is to guess 3 numbers in the correct order.
           </p>
+          <ol>
+            <li>Write 3 numbers</li>
+            <li>
+              The game will give you a hint on how many digits you have guessed
+              correctly and if they are on correct, or wrong position.
+            </li>
+            <li>
+              With previous check, guess again till all numbers are on correct
+              position
+            </li>
+          </ol>
           <p>
-            Each time you try to guess a code, the game will give you a hint on how many digits you have guessed correctly and if there are numbers among them that are in the correct position.
+            Contact us for your suggestions and opinions on mail
+            Karguel1995@gmail.com!
           </p>
-          <p>
-            Contact us for your suggestions and opinions on mail Karguel1995@gmail.com!
-          </p>
-          <p>
-            Good Luck & Have Fun!
-          </p>
+          <p>Good Luck & Have Fun!</p>
           {close}
         </article>
 
@@ -62,9 +69,9 @@ class Main extends React.Component {
         >
           <h2 className="major">Credits</h2>
           <p>Written and performed by</p>
-            <p>Filip Pawelec</p>
-            <p>Karguel1995@gmail.com</p>
-            <p>https://github.com/Karguel1995</p>
+          <p>Filip Pawelec</p>
+          <p>Karguel1995@gmail.com</p>
+          <p>https://github.com/Karguel1995</p>
           {close}
         </article>
       </div>
